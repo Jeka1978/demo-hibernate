@@ -1,28 +1,24 @@
 package com.db.demohibernate.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-
-import javax.persistence.*;
-import java.util.List;
+import lombok.NoArgsConstructor;
+import lombok.experimental.Wither;
 
 /**
  * @author Evgeny Borisov
  */
-@Entity
-@Table(name = "PERSONS")
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Wither
 public class Person {
 
 
-    @Id
-    @GeneratedValue
-    private long id;
-    @Transient
+    private String name;
     private int age;
-
-    @OneToMany(mappedBy = "owner",orphanRemoval = true)
-    private List<Event> events;
-
 
 
 
